@@ -1,0 +1,5 @@
+---
+
+- name: nettoyage
+  file: path="{{ pathphpscript_cleanupdocker }}" state=absent
+  changed_when: false

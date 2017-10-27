@@ -1,0 +1,8 @@
+---
+
+- name: déploiement script de nettoyage des images Docker
+  template: src=docker_list_cleanup.php.j2 dest="{{ pathphpscript_cleanupdocker }}" owner=root group=root mode=0644
+  changed_when: false
+
+- name: installation php-cli
+  package: name=php-cli state=installed
