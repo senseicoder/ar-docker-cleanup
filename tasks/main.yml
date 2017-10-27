@@ -12,13 +12,14 @@
   register: dockerimg2delete
   changed_when: false
 
-- name: images docker à supprimer
-  debug: var=dockerimg2delete.stdout
-  when: ar_docker_cleanup_display_2rm
+#- name: images docker à supprimer
+#  debug: var=dockerimg2delete.stdout
+#  when: ar_docker_cleanup_display_2rm
 
 - name: suppression des images
-  shell: "docker rmi {{ dockerimg2delete.stdout }}"
+  shell: "docker rmi {{ item }}"
   failed_when: false
+  with_items: dockerimg2delete.stdout
   when: dockerimg2delete.stdout | trim != ''
 
 - name: nettoyage
