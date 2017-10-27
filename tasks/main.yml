@@ -1,6 +1,7 @@
 ---
 
-- include: installation.yml
+- name: installation
+  include: installation.yml
   when: mode == "install"
 
 - name: collecte des images à supprimer
@@ -14,5 +15,6 @@
   with_items: "{{ dockerimg2delete.stdout_lines }}"
   when: dockerimg2delete.stdout | trim != ''
 
-- include: nettoyage.yml
+- name: nettoyage
+  include: nettoyage.yml
   when: mode == "clean"
