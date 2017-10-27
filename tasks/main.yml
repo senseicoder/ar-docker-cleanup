@@ -21,4 +21,4 @@
   when: dockerimg2delete.stdout | trim != ''
 
 - name: nettoyage
-  file: "{{ pathphpscript_cleanupdocker }}" state=absent
+  file: path="{{ pathphpscript_cleanupdocker }}" state=absent
